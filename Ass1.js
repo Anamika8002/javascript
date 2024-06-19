@@ -1,37 +1,57 @@
 /*
-1. Create a variable that can hold a number of NFT's.
-2. Create an object inside your mintNFT function that willl hold the metadata values will be passed to the function as parameters. when the NFT is ready, you will store it in the variable you create in Step 1.
-3. Your ListNFTs() function will print all of your NFTs metadata to the console.
-4. for good measure, getTotalSupply() should return the number of NFT'S you have created. 
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
 */
 
-const NFTs=[] //Array variable to hold many data.
+// create a variable to hold your NFT's
 
-function mintNFT(_name,course){
-    const NFT={ // object inside mintNFT function 
-        "name":_name,
-        "course":course
+const NFTs=[]
+
+/*
+This function will take some values as parameters. Create a NFT
+object using the parameters passed to it for its metadata, 
+and store it in the variable above.
+*/
+
+function mintNFT(_name,_movies,_earning) {
+    const NFT = {
+        name: _name,
+        movies: _movies,
+        earning: _earning,
     }
-NFTs.push(NFT); //push is a built in function to store objects into array.
-console.log("Person : "+_name);
+    NFTs.push(NFT);
+    console.log("Actor_Name : ",_name);
 }
 
+/*
+create a "loop" that will go through an "array" of NFT's
+and print their metadata with console.log()
+*/
 
-function listNFTs(){  //to print all NFTs metadata
-    for(let i=0; i,NFTs.length; i++){ //iteration to print all one by one
-        console.log("\nName : "+NFTs[i]._name);
-        console.log("Course : "+NFTs[i].course);
+function listNFTs() {
+    for(let i=0;i<NFTs.length;i++){
+        console.log("\nName :", NFTs[i].name);
+        console.log("Movies_Made :", NFTs[i].movies);
+        console.log("Earned :", NFTs[i].earning);
     }
 }
 
-function getTotalSupply(){ //to print all NFT'S created.
-    console.log(NFTs.length);
+// print the total number of NFTs we have minted to the console
+
+function getTotalSupply() {
+    console.log("\nTotal number of Actors : ",NFTs.length);
 }
 
-//Passing parameters to function
-mintNFT("Satyam","CSE");
-mintNFT("Anamika","BBA");
+// call your functions 
 
-//calling functions 
-listNFTs(); //to run looop and print all metadata
-getTotalSupply(); //To print no. of NFT'S we created.
+mintNFT("Salman Khan","39","10Cr");
+mintNFT("Akshay Kumar","59","80Cr");
+mintNFT("Raj Babbar","7","15L");
+
+listNFTs();
+getTotalSupply();
